@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap');
+
+:root{
+    --bg1: 'img/saxo.png';
+    --bg2: 'img/piano.png';
+    --bg3: 'img/electric-guitar.png';
+    --bg4: 'img/yuker-drum.png';
+}
+body{
+    background-color: #251d36;
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+/*HEADER*/
+header{
+    height: 70px;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    font-weight: bold;
+    color: #eee;
+    margin: 10px;
+}
+.menu ul{
+    display: flex;
+    gap: 20px;
+    color: #eee;
+    margin: 10px;
+}
+.menu ul li{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 5px;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #eee;
+        height: 2px;
+        width: 100%;
+        z-index: -1;
+        transition: all 0.5s ease-in-out;
+    }
+}
+.menu ul li:hover{
+    color: #251d36;
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #eee;
+        height: 30px;
+        width: 100%;
+        z-index: -1;
+    }
+}
+.menu ul li a{
+    text-decoration: none;
+    color: #eee;
+}
+.menu ul li:hover a{
+    color: #251d36;
+}
+
+/** HERO SECTION*/
+
+.hero-ctn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+.slider-items{
+    height: 100%;
+    width: 100%;
+}
+.slider-items .bg-img{
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    left: 50%;
+}
+.slider-items .bg-svg{
+    position: absolute;
+    top: 0;
+    right: 68px;
+    width: 750px;
+    height: calc(100vh - 120);
+}
+.slider-items .bg-svg #guitar{
+    transform-origin: center;
+    animation-name: scale;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.slider-items .bg-svg #sol-treble,
+.slider-items .bg-svg #crroche-linked-small,
+.slider-items .bg-svg #croche-linked,
+.slider-items .bg-svg #croche-2,
+.slider-items .bg-svg #croche{
+    transform-origin: center;
+    animation-name: twist;
+    animation-duration: .3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.slider-items .bg-svg #sol-treble{
+    animation-delay: 2s;
+}
+.slider-items .bg-svg #crroche-linked-small{
+    animation-delay: 2.5s;
+}
+.slider-items .bg-svg #croche-linked{
+    animation-delay: 3s;
+}
+.slider-items .bg-svg #croche-2{
+    animation-delay: 3.5s;
+}
+.slider-items .bg-svg #croche{
+    animation-delay: 4s;
+}
+@keyframes scale{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.05);
+    }
+}
+@keyframes twist{
+    0%, 100%{
+        transform: translateY(0)
+    }
+    50%{
+        transform: translateY(-.5%);
+    }
+}
+.item{
+    display: flex;
+    position: relative;
+    border: 2px solid #eee;
+    box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.5);
+    height: calc(100vh - 120px);
+    margin: 70px;
+}
+.item .img{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.item .img img{
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+.item .content .title{
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left:  -5%;
+    font-family: Oswald;
+    font-weight: bold;
+    font-size: 5rem;
+    text-shadow: 0 0 1em #eee, 0 0 0.2em #e2e2e2;
+    animation-name: slideInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+.item .content .topic{
+    position: absolute;
+    top: 25%;
+    left: 2%;
+    font-family: Oswald;
+    font-size: 1.2rem;
+    color: #eee;
+    animation-name: slideInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+}
+.item .content .description{
+    position: absolute;
+    bottom: 35%;
+    margin-left: 20px;
+    width: 60%;
+    color: #eee;
+    font-size: 0.8rem;
+    animation-name: slideInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+}
+.item .content .welcome{
+    position: absolute;
+    bottom: 15%;
+    left: 40%;
+    color: #caa605;
+    font-size: 1.5rem;
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+}
+@keyframes slideInLeft{
+    from{
+        transform: translateX(-180%) translateY(0);
+    }
+    to{
+        transform: translateX(0) translateY(); 
+    }
+}
+
+/*CARDS CONTAINER*/
+.cards-ctn{
+    position: relative;
+    margin: 30px;
+    margin-top: 90vh;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+.cards-ctn .card{
+    width: 250px;
+    height: 180px;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.cards-ctn .card:hover{
+    box-shadow: 0 1 5px rgba(35, 5, 48, 0.5);
+}
+.cards-ctn .card .bg{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: aqua;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    transition: all 0.5s linear;
+}
+.cards-ctn .card .bg img{
+    object-fit: cover;
+}
+.cards-ctn .card.c1:hover .bg,
+.cards-ctn .card.c2:hover .bg,
+.cards-ctn .card.c3:hover .bg,
+.cards-ctn .card.c4:hover .bg{
+    opacity: 1;
+}
+.cards-ctn .card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.cards-ctn .card img:hover{
+    transform: scale(1.2);
+}
+.music-styles,
+.languages{
+    width: 100vw;
+    height: 100px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-styles .music-style{
+    width: 100px;
+    height: 25px;
+    background-color: #39363f;
+    color: #737177;
+    font-family: Lobster;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    padding-top: 15px;
+    border-radius: 10px;
+    position: absolute;
+    right: -100px;
+    animation-name: translationFromRight;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.languages .web-lang{
+    width: 100px;
+    height: 25px;
+    background-color: #39363f;
+    color: #737177;
+    font-family: Lobster;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    padding-top: 15px;
+    border-radius: 10px;
+    position: absolute;
+    left: -100px;
+    animation-name: translationFromLeft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes translationFromRight{
+    to{
+        right:105vw;
+    }
+}
+@keyframes translationFromLeft{
+    to{
+        left:105vw;
+    }
+}
+
+.style1{
+    animation-delay: -30s;
+}
+.style2{
+    animation-delay: -27s;
+}
+.style3{
+    animation-delay: -24s;
+}
+.style4{
+    animation-delay: -21s;
+}
+.style5{
+    animation-delay: -18s;
+}
+.style6{
+    animation-delay: -15s;
+}
+.style7{
+    animation-delay: -12s;
+}
+.style8{
+    animation-delay: -9s;
+}
+.style9{
+    animation-delay: -6s;
+}
+.style10{
+    animation-delay: -3s;
+}
+
+/**ABOUT*/
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #eee;
+    margin-top: 50px;
+}
+.about .top{
+    display: flex;
+    gap: 5px;
+    width: 100vw;
+}
+.about .letter{
+    height: 82vh;
+    width: 200px;
+    font-family: Oswald;
+    font-size: 21rem;
+    color: #737177;
+    letter-spacing: -2px;
+    opacity: 0.5;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    z-index: 2;
+    transform-origin: center;
+    transition: all 0.3s linear;
+    position: relative;
+}
+.about .letter .sub-letter{
+    position: absolute;
+    bottom: -10px;
+    left: 50px;
+    transform: translateY(-100%);
+    font-size: 0.7rem;
+    font-family: Poppins;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background-color: #eee;
+    border-radius: 5px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    z-index: 4;
+}
+.about .letter:hover{
+    transform: scale(1.2);
+    color: #eee;
+    opacity: 1;
+    z-index: 3;
+}
+.about .letter:hover .sub-letter{
+    opacity: 1;
+    color: #251d36;
+    transform: translateY(0);
+}
+
+.about .letter.a:hover{
+    background-image: url("img/bg-guitar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.b:hover{
+    background-image: url("img/bg-drummer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.o:hover{
+    background-image: url("img/bg-guitar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.u:hover{
+    background-image: url("img/bg-piano.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.t:hover{
+    background-image: url("img/bg-yuker-drum.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.none:hover{
+    background-image: url("img/bg-drummer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.m:hover{
+    background-image: url("img/bg-guitar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about .letter.e:hover{
+    background-image: url("img/bg-piano.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.about .left{
+    width:45vw;
+    margin: 50px;
+}
+.about .left p{
+    text-align: justify;
+}
+.about .left h2{
+    font-family: Oswald;
+}
+.about .email-section{
+    width: 100px;
+    height: 40px;
+    background-color: #caa605;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 10px;
+    cursor: pointer;
+    transform: translateX(45vw);
+    transition: all 0.2s ease-in-out;
+}
+.about .email-section:hover{
+    background-color: #f7d958;
+    box-shadow: 0 0 10px #f7e8a7;
+}
+
+.about .email-section a{
+    text-decoration: none;
+    color: #251d36;
+    font-weight: bold;
+}
+
+#passions{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#passions .card{
+    width: 30vw;
+    height: 500px;
+    position: relative;
+    margin: 20px;
+    padding: 0;
+    background-color: #eee;
+}
+#passions .card .image{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 400px;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    z-index: 3;
+}
+#passions .card .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#passions .card .content{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    color: #251d36;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#passions .card .content h3,
+#passions .card .content p{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+}
+#passions .card .content p{
+    opacity: 0;
+}
+#passions .card:hover .image{
+    transform: translateY(-30%) translateX(-50%);
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.7);
+}
+#passions .card:hover .content h3{
+    transform: translateY(-400%) translateX(-50%);
+}
+#passions .card:hover .content p{
+    opacity: 1;
+}
+
+/**FOOTER*/
+
+footer{
+    background-color: #737177;
+    color: #251d36;
+}
+footer .socials{
+    display: flex;
+    justify-content: space-around;
+}
+footer .copyright{
+    text-align: center;
+    font-size: 0.7rem;
+}

@@ -5,4 +5,4 @@ function hideLoader(){
     content.style.display = "block";
 }
 
-window.qddEventListener('load', hideLoader);
+window.addEventListener('load', hideLoader);

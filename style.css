@@ -17,6 +17,27 @@ body{
     width: 100vw;
 }
 
+/**Loader*/
+#loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    animation-name:  breathe;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes breathe{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.5);
+    }
+}
 /*HEADER*/
 header{
     height: 70px;
